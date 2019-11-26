@@ -1,4 +1,4 @@
-var count = 0;
+var count;
 
 function validate() {
 	var first_name = document.getElementById('first_name');
@@ -21,22 +21,64 @@ function validate() {
 
 	var alert_phone = document.getElementById('alert_phone');
 
+	//condition for
+
 	if (!(residence1.checked || residence2.checked)) {
-		count = 1;
 		document.getElementById('alert_gender').innerHTML = 'Please select your gender';
 		setTimeout(function() {
 			document.getElementById('alert_gender').innerHTML = '';
 		}, 5000);
+		var radio = false;
+	} else {
+		radio = true;
 	}
 
 	if (!(check_box1.checked || check_box2.checked || check_box3.checked)) {
-		count = 1;
 		document.getElementById('alert_check').innerHTML = 'Please select atleast one interest ';
 		setTimeout(function() {
 			document.getElementById('alert_check').innerHTML = '';
 		}, 5000);
+		var check = false;
 	} else {
+		check = true;
+	}
+
+	var first = validateFirst();
+	var last = validateLast();
+	var phone_value = validPhone();
+	var phone_office = valid_officePhone();
+	var u_email = validateEmail();
+	var u_password = validatePassword();
+	var u_confPassword = validateConfPass();
+	var u_about = validateAbout();
+
+	// console.log(first);
+	// console.log(last);
+	// console.log(phone_value);
+	// console.log(phone_office);
+	// console.log(u_email);
+	// console.log(u_password);
+	// console.log(u_confPassword);
+	// console.log(u_about);
+	console.log(radio);
+	console.log(check);
+
+	if (
+		first == true &&
+		last == true &&
+		phone_value == true &&
+		phone_office == true &&
+		u_email == true &&
+		u_password == true &&
+		u_confPassword == true &&
+		u_about == true &&
+		radio == true &&
+		check == true
+	) {
 		alert('form submitted successfully');
+		window.open('http://stackoverflow.com', '_blank');
+	} else {
+		alert('wrong input');
 	}
 }
 
@@ -44,80 +86,82 @@ function validate() {
 
 function validateFirst() {
 	if (first_name.value === '') {
-		count = 1;
+		//
 		document.getElementById('alertFirst').innerHTML = 'This field cannot be empty';
 		setTimeout(function() {
 			document.getElementById('alertFirst').innerHTML = '';
 		}, 5000);
-		//first_name.focus();
+		return (count = false);
 	}
+	return true;
 }
 
 // checking last name input field
 
 function validateLast() {
 	if (last_name.value === '') {
-		count = 1;
 		document.getElementById('alertLast').innerHTML = 'This field cannot be empty';
 		setTimeout(function() {
 			document.getElementById('alertLast').innerHTML = '';
 		}, 5000);
-		//last_name.focus();
+		return (count = false);
 	}
+	return true;
 }
 
 // checking input value of phone field;
 
 function validPhone() {
 	if (phone_no.value === '') {
-		count = 1;
 		document.getElementById('alertPhone').innerHTML = 'this field cannot be empty';
 		setTimeout(function() {
 			document.getElementById('alertPhone').innerHTML = '';
 		}, 5000);
-		//phone_no.focus();
+		return (count = false);
 	} else if (phone_no.value.length > 10 || phone_no.value.length < 10) {
-		count = 1;
 		document.getElementById('alertPhone').innerHTML = 'please enter 10 digits only';
 		setTimeout(function() {
 			document.getElementById('alertPhone').innerHTML = '';
 		}, 5000);
+		return (count = false);
 		// phone_no.focus();
 	} else if (isNaN(phone_no.value)) {
-		count = 1;
 		document.getElementById('alertPhone').innerHTML = 'please enter digits only';
 		setTimeout(function() {
 			document.getElementById('alertPhone').innerHTML = '';
 		}, 5000);
-		//phone_no.focus();
+
+		return (count = false);
 	}
+	return true;
 }
 
 //checking input value for office field
 
 function valid_officePhone() {
 	if (office_no.value === '') {
-		count = 1;
 		document.getElementById('alert_officePhone').innerHTML = 'This field cannot be empty';
 		setTimeout(function() {
 			document.getElementById('alert_officePhone').innerHTML = '';
 		}, 5000);
+		return (count = false);
 		//office_no.focus();
 	} else if (office_no.value.length > 10 || office_no.value.length < 10) {
-		count = 1;
 		document.getElementById('alert_officePhone').innerHTML = 'please enter 10 digits only';
 		setTimeout(function() {
 			document.getElementById('alert_officePhone').innerHTML = '';
 		}, 5000);
 		//office_no.focus();
+		return (count = false);
 	} else if (isNaN(office_no.value)) {
-		count = 1;
 		document.getElementById('alert_officePhone').innerHTML = 'please enter digits only';
 		setTimeout(function() {
 			document.getElementById('alert_officePhone').innerHTML = '';
 		}, 5000);
 		//office_no.focus();
+		return (count = false);
 	}
+	return true;
 }
 
 // validate email entered by user
@@ -139,21 +183,19 @@ function validateEmail() {
 	*/
 
 	if (user_email.value === '') {
-		count = 1;
 		document.getElementById('alert_email').innerHTML = 'this field cannot be empty';
 		setTimeout(function() {
 			document.getElementById('alert_email').innerHTML = '';
 		}, 5000);
+		return (count = false);
 	} else if (!user_email.value.match(pattern)) {
-		count = 1;
 		document.getElementById('alert_email').innerHTML = 'please enter valid email address';
 		setTimeout(function() {
 			document.getElementById('alert_email').innerHTML = '';
 		}, 5000);
-	} else {
-		count = 0;
-		return true;
+		return (count = false);
 	}
+	return true;
 }
 
 //validate password function
@@ -165,30 +207,28 @@ function validatePassword(min, max) {
 	var pass_len = user_pass.value.length;
 
 	if (pass_len < min || pass_len > max || !user_pass.value.match(pass_pattern)) {
-		count = 1;
 		document.getElementById('alert_pass').innerHTML = 'please enter password between 8-15 alphanumeric characters';
 		setTimeout(function() {
 			document.getElementById('alert_pass').innerHTML = '';
 		}, 5000);
-	} else {
-		count = 0;
-		return true;
+		return (count = false);
 	}
+	return true;
 }
 
 //confirm password validation function.
 
 function validateConfPass() {
-	var alert_conf_pass = document.getElementById('alert_conf_pass');
 	if (user_conf.value === user_pass.value) {
 		count = 0;
 		return true;
 	} else {
-		count = 1;
+		//
 		document.getElementById('alert_conf_pass').innerHTML = "Password did'nt matched ";
 		setTimeout(function() {
 			document.getElementById('alert_conf_pass').innerHTML = '';
 		}, 5000);
+		return (count = false);
 	}
 }
 
@@ -215,14 +255,14 @@ function getAge() {
 	var fixed_age = age.toFixed(2);
 
 	if (inputMonth.value == 'month' || inputYear.value == 'year' || inputDay.value == 'day') {
-		count = 1;
 		document.getElementById('alert_birth').innerHTML = 'please enter valid date,year,month';
 		setTimeout(function() {
 			document.getElementById('alert_birth').innerHTML = '';
 		}, 5000);
+		return (count = false);
 	} else {
-		count = 0;
 		document.getElementById('age').value = fixed_age + ' years';
+		return true;
 	}
 }
 
@@ -233,7 +273,9 @@ function validateAbout() {
 		setTimeout(function() {
 			document.getElementById('alert_about').innerHTML = '';
 		}, 5000);
+		return (count = false);
 	}
+	return true;
 }
 
 var year = 1980;
