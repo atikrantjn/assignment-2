@@ -52,17 +52,6 @@ function validate() {
 	var u_confPassword = validateConfPass();
 	var u_about = validateAbout();
 
-	// console.log(first);
-	// console.log(last);
-	// console.log(phone_value);
-	// console.log(phone_office);
-	// console.log(u_email);
-	// console.log(u_password);
-	// console.log(u_confPassword);
-	// console.log(u_about);
-	console.log(radio);
-	console.log(check);
-
 	if (
 		first == true &&
 		last == true &&
@@ -76,9 +65,10 @@ function validate() {
 		check == true
 	) {
 		alert('form submitted successfully');
-		window.open('http://stackoverflow.com', '_blank');
+
+		window.location.reload();
 	} else {
-		alert('wrong input');
+		alert('please fill all the details before submitting form');
 	}
 }
 
@@ -118,19 +108,17 @@ function validPhone() {
 			document.getElementById('alertPhone').innerHTML = '';
 		}, 5000);
 		return (count = false);
-	} else if (phone_no.value.length > 10 || phone_no.value.length < 10) {
-		document.getElementById('alertPhone').innerHTML = 'please enter 10 digits only';
-		setTimeout(function() {
-			document.getElementById('alertPhone').innerHTML = '';
-		}, 5000);
-		return (count = false);
-		// phone_no.focus();
 	} else if (isNaN(phone_no.value)) {
 		document.getElementById('alertPhone').innerHTML = 'please enter digits only';
 		setTimeout(function() {
 			document.getElementById('alertPhone').innerHTML = '';
 		}, 5000);
-
+		return (count = false);
+	} else if (phone_no.value.length > 10 || phone_no.value.length < 10) {
+		document.getElementById('alertPhone').innerHTML = 'please enter 10 digits only';
+		setTimeout(function() {
+			document.getElementById('alertPhone').innerHTML = '';
+		}, 5000);
 		return (count = false);
 	}
 	return true;
@@ -145,20 +133,19 @@ function valid_officePhone() {
 			document.getElementById('alert_officePhone').innerHTML = '';
 		}, 5000);
 		return (count = false);
-		//office_no.focus();
-	} else if (office_no.value.length > 10 || office_no.value.length < 10) {
-		document.getElementById('alert_officePhone').innerHTML = 'please enter 10 digits only';
-		setTimeout(function() {
-			document.getElementById('alert_officePhone').innerHTML = '';
-		}, 5000);
-		//office_no.focus();
-		return (count = false);
 	} else if (isNaN(office_no.value)) {
 		document.getElementById('alert_officePhone').innerHTML = 'please enter digits only';
 		setTimeout(function() {
 			document.getElementById('alert_officePhone').innerHTML = '';
 		}, 5000);
-		//office_no.focus();
+
+		return (count = false);
+	} else if (office_no.value.length > 10 || office_no.value.length < 10) {
+		document.getElementById('alert_officePhone').innerHTML = 'please enter 10 digits only';
+		setTimeout(function() {
+			document.getElementById('alert_officePhone').innerHTML = '';
+		}, 5000);
+
 		return (count = false);
 	}
 	return true;
@@ -250,7 +237,7 @@ function getAge() {
 
 	var diff = Math.abs(today.getTime() - newdate.getTime());
 
-	var age = diff / (1000 * 3600 * 24 * 365.25);
+	var age = diff / (1000 * 3600 * 24 * 365.2425);
 
 	var fixed_age = age.toFixed(2);
 

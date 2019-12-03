@@ -118,7 +118,7 @@
 			</div>
 
 			<div class="contect_text">So we can successfully match your details with suitable people, we first need to collect some information about you. Read each question carfully and  select or place a tick in the box for each of your characteristics. Please answer as honestly as you can, otherwise you may be disappointed with your matches and they with you.</div>
-
+			
 			<div id="form" class="form_container_block">
 				<ul>
 					<li class="fileds">
@@ -126,14 +126,14 @@
 							<label>First Name
 							<p id="alertFirst" style="color: red;font-size: 13px;"></p>
 							</label>
-							<input id="first_name" name="firstname" type="text" placeholder="Enter first name..." onblur="validateFirst()" />
+							<input class="clear_input" id="first_name" name="firstname" type="text" placeholder="Enter first name..." onblur="validateFirst()" />
 							 
 						</div>
 						<div class="name_fileds">
 							<label>Last Name
 							<p id="alertLast" style="color: red;font-size: 13px;"></p>
 							</label>
-							<input id="last_name" name="lastname" type="text" placeholder="Enter last name..." onblur="validateLast()"/> 
+							<input class="clear_input" id="last_name" name="lastname" type="text" placeholder="Enter last name..." onblur="validateLast()"/> 
 						</div>
 					</li>
 					<li class="fileds">
@@ -141,12 +141,12 @@
 							<label>Phone No</label>
 							<p id="alertPhone" style="color: red;font-size: 13px;"></p>
 							
-							<input id="phone_no" onblur="validPhone()" name="phone" type="text" placeholder="Enter Phone no. ..." /> 
+							<input class="clear_input" id="phone_no" onblur="validPhone()" name="phone" type="text" placeholder="Enter Phone no. ..." /> 
 						</div>
 						<div class="phone_fileds">
 							<label>Office No</label>
 							<p id="alert_officePhone" style="color: red;font-size: 13px;"></p>
-							<input id="office_no" maxlength="10" name="office" onblur="valid_officePhone()"  type="text" placeholder="Enter office no." /> 
+							<input class="clear_input" id="office_no" maxlength="10" name="office" onblur="valid_officePhone()"  type="text" placeholder="Enter office no." /> 
 						</div>
 					</li>					
 					<li class="fileds">
@@ -154,13 +154,13 @@
 							<label>Email</label>
 							<p id="alert_email" style="color: red;font-size: 13px;"></p>
 							
-							<input id="user_email" onblur="validateEmail()" name="email" type="text" placeholder="Enter E-mail..." /> 
+							<input class="clear_input" id="user_email" onblur="validateEmail()" name="email" type="text" placeholder="Enter E-mail..." /> 
 						</div>
 						<div class="pass_fileds">
 							<label>Password</label>
 							<p id="alert_pass" style="color: red;font-size: 13px;"></p>
 							
-							<input id="user_pass" style="width:380px" onblur="validatePassword(8,15)" name="password" type="password" placeholder="Enter password..." /> 
+							<input class="clear_input" id="user_pass" style="width:380px" onblur="validatePassword(8,15)" name="password" type="password" placeholder="Enter password..." /> 
 						</div>
 					</li>
 					<li class="fileds">
@@ -168,7 +168,7 @@
 							<label>Confirm Password</label>
 							<p id="alert_conf_pass" style="color: red;font-size: 13px;"></p>
 							
-							<input id="user_conf" style="width:380px" name="password"  onblur="validateConfPass()" type="password" placeholder="Re-enter Password" /> 
+							<input class="clear_input" id="user_conf" style="width:380px" name="password"  onblur="validateConfPass()" type="password" placeholder="Re-enter Password" /> 
 						</div>
 							<div class="dob_fileds selectbox">
 								<label>My birthdate is</label>
@@ -208,14 +208,14 @@
 					<li class="fileds">
 						<div class="age_fileds">
 							<label>Age</label>
-							<input id="age" name="age" type="text" disabled style="font-size: 15px;" /> 
+							<input class="clear_input" id="age" name="age" type="text" disabled style="font-size: 15px;" /> 
 						</div>
 						<div class="gender_fileds">
 							<label>Gender</label>
 							<p id="alert_gender" style="color: red;font-size: 13px;"></p>
 							<ul>
-								<li><input type="radio" class="radio" id="residence1" name="radio"  /><label class="radio-label" for="residence1">Male</label></li>
-								<li><input type="radio" class="radio" id="residence2" name="radio" /><label class="radio-label" for="residence2">Female</label></li>
+								<li><input type="radio" class="radio clear_input" id="residence1" name="radio"  /><label class="radio-label" for="residence1">Male</label></li>
+								<li><input type="radio" class="radio clear_input" id="residence2" name="radio" /><label class="radio-label" for="residence2">Female</label></li>
 							</ul>	
 						</div>
 					</li>
@@ -224,15 +224,15 @@
 						<label>Interest</label>
 							<p id="alert_check" style="color: red;font-size: 13px;"></p>
 							<ul>
-								<li><input type="checkbox" class="checkbox" id="checkbox_sample18" /> <label class="css-label" for="checkbox_sample18">Biking</label></li>
-								<li><input type="checkbox" class="checkbox" id="checkbox_sample19"  /> <label class="css-label" for="checkbox_sample19">Reading</label></li>
-								<li><input type="checkbox" class="checkbox" id="checkbox_sample20"  /> <label class="css-label" for="checkbox_sample20">Playing</label></li>
+								<li><input type="checkbox" class="checkbox clear_input" id="checkbox_sample18" /> <label class="css-label" for="checkbox_sample18">Biking</label></li>
+								<li><input type="checkbox" class="checkbox clear_input" id="checkbox_sample19"  /> <label class="css-label" for="checkbox_sample19">Reading</label></li>
+								<li><input type="checkbox" class="checkbox clear_input" id="checkbox_sample20"  /> <label class="css-label" for="checkbox_sample20">Playing</label></li>
 							</ul>
 						</div>
 						<div class="about_you_fileds">
 							<label>About you</label>
-							<p id="alert_about" style="color: red;font-size: 13px;"></p>
-							<textarea id="about_us" onblur="validateAbout()"></textarea>
+							<p  id="alert_about" style="color: red;font-size: 13px;"></p>
+							<textarea class="clear_input" id="about_us" onblur="validateAbout()"></textarea>
 						</div>						
 					</li>
 				</ul>
@@ -431,7 +431,12 @@ Live a life without regrets and take action today!</p>
 <!--wrapper-starts-->
 
 <script type="text/javascript" src="js/jquery.js"></script>	
+
+<!-- my script file for assignment 2 -->
+
 <script src="ass2.js" type="text/javascript"></script>
+
+
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.select').each(function(){
